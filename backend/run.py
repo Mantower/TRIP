@@ -3,6 +3,7 @@ from flask import request
 from flask import jsonify
 from flask_autodoc import Autodoc
 from nlpComponent import PyNLP
+from finnairComponent import FinnAir
 import json
 
 app = Flask(__name__)
@@ -19,7 +20,7 @@ def doc():
 
 @app.route("/v1/search", methods=["GET"])
 @auto.doc()
-def search():
+def search_photos():
     text = request.args.get('term', '')
     pyNLP = PyNLP('9000')
     print(text)
@@ -28,7 +29,16 @@ def search():
     #json_return = json.loads(photos)
     #json_lists = json_return["photos"]["photo"]
 
-    return jsonify(output[0])
+    return jsonify(output[0]["photos"]["photo"])
+
+@app.route("/v1/flights", methods=["GET"])
+@auto.doc()
+def search_flights():
+    destination_code = request.args.get('destination_code', '')
+    departure_date = request.args.get('departure_date', '')
+    finnAir = FinnAir()
+    flights = finnAir.search_flights(destination_code, departure_date)
+    return jsonify(flights)
 
 @app.errorhandler(404)
 def not_found(error):

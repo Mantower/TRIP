@@ -54,22 +54,20 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
                   console.log(airport);
                   $scope.result.airport = 'Fly to ' + airport.city + ', ' + airport.country ;
                   $scope.result.distance = '(' + Math.round(airport.extras.distance/10)/100 + 'km away from the destination)';
-              }, function(error) {
-                alert(error);
-              })
-              .then(function(){
                   console.log(airport.code)
                   TripService.searchFlights(airport.code, '2017-12-05')
-                  .then(function(data) {
-                    console.log(data);
-                    if (data.offers) {
-                      $scope.result.offerText = 'Round-trip starting from';
-                      $scope.result.offers = '€' + data.offers[0].totalPrice;
-                    } else {
-                      $scope.result.offerText = 'No flights found';
-                      $scope.result.offers = "Get price";
-                    }
+                    .then(function(data) {
+                        console.log(data);
+                        if (data.offers) {
+                        $scope.result.offerText = 'Round-trip starting from';
+                        $scope.result.offers = '€' + data.offers[0].totalPrice;
+                      } else {
+                          $scope.result.offerText = 'No flights found';
+                          $scope.result.offers = "Get price";
+                      }
                   })
+              }, function(error) {
+                alert(error);
               })
               .then(function() {
                 TripService.getLocation(lat, long)
@@ -78,6 +76,12 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
                   $scope.result.location = data.places.place[0].name;
                   $scope.shouldShow = false;
                   $scope.hideSearch = true;
+                  var map_url = 'https://maps.googleapis.com/maps/api/staticmap?center='
+                  map_url += $scope.result.location
+                  map_url += '&zoom=5&size=400x300&maptype=terrain&markers=color:red%7Clabel:A%7C'
+                  map_url += lat + ',' + long
+                  map_url += '&key=AIzaSyBHXFdYNMr7lMiAnjU20YTx2g9ED072zZ4'
+                  $scope.result.googlemap = map_url
                 })
               });
 

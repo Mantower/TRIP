@@ -20,7 +20,10 @@
     <h1>{{result.location}}</h1>
   </div>
   <div ng-show="hideSearch">
+  <ul>
     <img ng-src={{result.photo}} height="400"/>
+    <img ng-src={{result.googlemap}} height="400"/>
+  </ul>
   </div>
   <div ng-show="hideSearch">
     <h2>{{result.airport}}</h2>

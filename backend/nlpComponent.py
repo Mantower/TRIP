@@ -29,10 +29,24 @@ class PyNLP:
             print(output_list)
             tag_list.append(output_list)
         else:
+            print(properties)
             output = nlp.annotate(input_string, properties)
-            output_list = output['sentences'][0].get(u'openie')[0]
-            nlp_object = output_list.get(u'object')
-            nlp_subject = output_list.get(u'subject')
+            print(output)
+            output_list = output['sentences'][0].get(u'openie')
+            print(output_list)
+            nlp_object = ''
+            nlp_subject = ''
+            if not output_list:
+                parse_items = output['sentences'][0].get(u'enhancedPlusPlusDependencies')
+                iter_nlp = iter(parse_items)
+                next(iter_nlp)
+                for item in iter_nlp:
+                    if item.get(u'dep') == u'amod':
+                        nlp_object += item.get(u'governorGloss') + ' '
+                        nlp_object += item.get(u'dependentGloss')
+            else:
+                nlp_object = output_list[0].get(u'object')
+                nlp_subject = output_list[0].get(u'subject')
             print(nlp_object)
             print(nlp_subject)
             if nlp_object != None:

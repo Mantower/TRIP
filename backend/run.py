@@ -7,6 +7,7 @@ from flickrComponent import PyFlickr
 from finnairComponent import FinnAir
 from random_city import RandomCity
 import json
+import math
 
 app = Flask(__name__)
 auto = Autodoc(app)
@@ -41,6 +42,23 @@ def search_flights():
     finnAir = FinnAir()
     flights = finnAir.search_flights(destination_code, departure_date)
     return jsonify(flights)
+
+@app.route("/v1/destination", methods=["GET"])
+@auto.doc()
+def search_for_nearest_airport():
+    longitude = float(request.args.get('longitude', ''))
+    latitude = float(request.args.get('latitude', ''))
+    finnAir = FinnAir()
+    airports = finnAir.search_for_nearest_airport(latitude, longitude)
+    for airport in airports:
+        print(airport)
+        airport["extras"] = {
+            "longitude": longitude,
+            "latitude": latitude,
+            "distance": math.hypot(airport["longitude"] - longitude, airport["latitude"] - latitude) * 1000 * 111,
+            "unit": "cm"
+        }
+    return jsonify(airports)
 
 @app.errorhandler(404)
 def not_found(error):

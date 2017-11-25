@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "Amplitude";
+    src: url("../fonts/Amplitude-Regular_3557.ttf");
+}
+
+
+/* Header */
+
+#header {
+    height: 163px;
+    width: 100%;
+    box-shadow: 0px 4px 0px #b8b8b8;
+    background-color: 000;
+    display: flex;
+    align-items: center;
+}
+
+#header img {
+    height: 53px;
+    margin-left: 43px;
+}
+
+
+/* Body */
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Amplitude";
+    font-weight: lighter;
+    height: 100%;
+}
+
+#content {
+    display: block;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: #18245D;
+}
+
+h2 {
+    font-size: 40px;
+    color: #18245D;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #A53F8C;
+    color: white;
+    width: 200px;
+    height: 70px;
+    font-size: 50px;
+    font-family: "Amplitude";
+}
+
+#back-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+input {
+    width: 180px;
+    height: 20px;
+    box-shadow: 0px 2px 0px #b8b8b8;
+}
+
+input[type=text] {
+    font-family: "Amplitude";
+    font-weight: lighter;
+    font-size: 20px;
+    color: #4D4D4D;
+}
+
+
+/* Footer */
+
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
+}
+
+#footer,
+#push {
+    height: 142px;
+    text-align: center;
+}
+
+
+/* Icons */
+
+#icon-large {
+    height: 35px;
+    padding-top: 50px;
+}

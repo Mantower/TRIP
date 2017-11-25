@@ -16,6 +16,7 @@
     </ul>
   </div>
   <div ng-show="hideSearch">
+    <h2>This picture was taken in</h2>
     <h1>{{result.location}}</h1>
   </div>
   <div ng-show="hideSearch">
@@ -29,12 +30,11 @@
     <hr width="80%" align="center "/>
   </div>
   <div ng-show="hideSearch">
-    <h2>{{result.offerTex}}</h2>
+    <h2>{{result.offerText}}</h2>
     <button>{{result.offers}}</button>
   </div>
 
 </div>
 <div id="back-button" ng-show="hideSearch">
-  <img id="icon-large" src="/images/back.svg" ng-click="back()"/>
+  <a ng-click="back()"><img id="icon-large" src="/images/back.svg"/>Back</a>
 </div>
-<div id="push"></div>

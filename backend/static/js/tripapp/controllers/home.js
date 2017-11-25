@@ -63,7 +63,7 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
                   .then(function(data) {
                     console.log(data);
                     if (data.offers) {
-                      $scope.result.offerText = 'Round-trip starting from €';
+                      $scope.result.offerText = 'Round-trip starting from';
                       $scope.result.offers = '€' + data.offers[0].totalPrice;
                     } else {
                       $scope.result.offerText = 'No flights found';

@@ -49,12 +49,8 @@ class PyNLP:
                 nlp_subject = output_list[0].get(u'subject')
             print(nlp_object)
             print(nlp_subject)
-            if nlp_object != None:
-                tag_list.append(nlp_object)
-            if nlp_subject != None:
-                tag_list.append(nlp_subject)
 
-        tag_list = nlp_object + ' ' + nlp_subject
+            tag_list = nlp_object + ' ' + nlp_subject
         print(tag_list)
         results = flickr.get_image_data(tag_list)
 

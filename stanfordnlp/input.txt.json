@@ -1,0 +1,362 @@
+{
+  "sentences": [
+    {
+      "index": 0,
+      "parse": "(ROOT\n  (S\n    (NP (DT the) (JJ quick) (JJ brown) (NN fox))\n    (VP (VBD jumped)\n      (PP (IN over)\n        (NP (DT the) (JJ lazy) (NN dog))))))",
+      "basicDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "quick"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "case",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "nmod",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        }
+      ],
+      "enhancedDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "quick"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "case",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "nmod:over",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        }
+      ],
+      "enhancedPlusPlusDependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 5,
+          "dependentGloss": "jumped"
+        },
+        {
+          "dep": "det",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 1,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 2,
+          "dependentGloss": "quick"
+        },
+        {
+          "dep": "amod",
+          "governor": 4,
+          "governorGloss": "fox",
+          "dependent": 3,
+          "dependentGloss": "brown"
+        },
+        {
+          "dep": "nsubj",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 4,
+          "dependentGloss": "fox"
+        },
+        {
+          "dep": "case",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 6,
+          "dependentGloss": "over"
+        },
+        {
+          "dep": "det",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 7,
+          "dependentGloss": "the"
+        },
+        {
+          "dep": "amod",
+          "governor": 9,
+          "governorGloss": "dog",
+          "dependent": 8,
+          "dependentGloss": "lazy"
+        },
+        {
+          "dep": "nmod:over",
+          "governor": 5,
+          "governorGloss": "jumped",
+          "dependent": 9,
+          "dependentGloss": "dog"
+        }
+      ],
+      "tokens": [
+        {
+          "index": 1,
+          "word": "the",
+          "originalText": "the",
+          "lemma": "the",
+          "characterOffsetBegin": 0,
+          "characterOffsetEnd": 3,
+          "pos": "DT",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": "",
+          "after": " "
+        },
+        {
+          "index": 2,
+          "word": "quick",
+          "originalText": "quick",
+          "lemma": "quick",
+          "characterOffsetBegin": 4,
+          "characterOffsetEnd": 9,
+          "pos": "JJ",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 3,
+          "word": "brown",
+          "originalText": "brown",
+          "lemma": "brown",
+          "characterOffsetBegin": 10,
+          "characterOffsetEnd": 15,
+          "pos": "JJ",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 4,
+          "word": "fox",
+          "originalText": "fox",
+          "lemma": "fox",
+          "characterOffsetBegin": 16,
+          "characterOffsetEnd": 19,
+          "pos": "NN",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 5,
+          "word": "jumped",
+          "originalText": "jumped",
+          "lemma": "jump",
+          "characterOffsetBegin": 20,
+          "characterOffsetEnd": 26,
+          "pos": "VBD",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 6,
+          "word": "over",
+          "originalText": "over",
+          "lemma": "over",
+          "characterOffsetBegin": 27,
+          "characterOffsetEnd": 31,
+          "pos": "IN",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 7,
+          "word": "the",
+          "originalText": "the",
+          "lemma": "the",
+          "characterOffsetBegin": 32,
+          "characterOffsetEnd": 35,
+          "pos": "DT",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 8,
+          "word": "lazy",
+          "originalText": "lazy",
+          "lemma": "lazy",
+          "characterOffsetBegin": 36,
+          "characterOffsetEnd": 40,
+          "pos": "JJ",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": " "
+        },
+        {
+          "index": 9,
+          "word": "dog",
+          "originalText": "dog",
+          "lemma": "dog",
+          "characterOffsetBegin": 41,
+          "characterOffsetEnd": 44,
+          "pos": "NN",
+          "ner": "O",
+          "speaker": "PER0",
+          "before": " ",
+          "after": "\n"
+        }
+      ]
+    }
+  ],
+  "corefs": {
+    "1": [
+      {
+        "id": 1,
+        "text": "the quick brown fox",
+        "type": "NOMINAL",
+        "number": "SINGULAR",
+        "gender": "MALE",
+        "animacy": "ANIMATE",
+        "startIndex": 1,
+        "endIndex": 5,
+        "headIndex": 4,
+        "sentNum": 1,
+        "position": [
+          1,
+          1
+        ],
+        "isRepresentativeMention": true
+      }
+    ],
+    "2": [
+      {
+        "id": 2,
+        "text": "the lazy dog",
+        "type": "NOMINAL",
+        "number": "SINGULAR",
+        "gender": "UNKNOWN",
+        "animacy": "ANIMATE",
+        "startIndex": 7,
+        "endIndex": 10,
+        "headIndex": 9,
+        "sentNum": 1,
+        "position": [
+          1,
+          2
+        ],
+        "isRepresentativeMention": true
+      }
+    ]
+  }
+}

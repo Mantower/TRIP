@@ -5,6 +5,7 @@ from flask_autodoc import Autodoc
 from nlpComponent import PyNLP
 from finnairComponent import FinnAir
 import json
+import math
 
 app = Flask(__name__)
 auto = Autodoc(app)
@@ -47,6 +48,14 @@ def search_for_nearest_airport():
     latitude = float(request.args.get('latitude', ''))
     finnAir = FinnAir()
     airports = finnAir.search_for_nearest_airport(latitude, longitude)
+    for airport in airports:
+        print(airport)
+        airport["extras"] = {
+            "longitude": longitude,
+            "latitude": latitude,
+            "distance": math.hypot(airport["longitude"] - longitude, airport["latitude"] - latitude) * 1000 * 111,
+            "unit": "cm"
+        }
     return jsonify(airports)
 
 @app.errorhandler(404)

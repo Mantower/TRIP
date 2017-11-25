@@ -33,5 +33,9 @@ json_lists = json_return["photos"]["photo"]
 
 print(json_return[0]["u'id'"])
 
+
+def parse_tags(input_tags):
+
+
 #for key, value in dict.items(json_return["photos"]["photo"]):
 #    print key, value

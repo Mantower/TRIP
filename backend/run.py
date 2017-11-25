@@ -68,7 +68,7 @@ def search_for_nearest_airport():
             "longitude": longitude,
             "latitude": latitude,
             "distance": math.hypot(airport["longitude"] - longitude, airport["latitude"] - latitude) * 1000 * 111,
-            "unit": "cm"
+            "unit": "meters"
         }
     return jsonify(airports)
 

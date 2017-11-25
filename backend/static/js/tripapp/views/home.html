@@ -1,15 +1,17 @@
 <div id="content" ng-init="init()">
   <h1>What do you dream of seeing or doing on your next trip?</h1>
-  <input type="text" name="term" ng-model="term" value="Write anything..." />
-  <input type="image" ng-click="submit()" src="/images/submit.svg"/>
-  <br>
-  <div ng-show="photos.length > 0">
+  <div id="form">
+    <input id="term-box" type="text" name="term" ng-model="term" placeholder="Write anything..." />
+    <input id="submit-button" type="image" ng-click="submit()" src="/images/submit.svg"/>
+  </div>
+  <br class="clearer"/>
+  <div id="photos" ng-show="photos.length > 0">
     <h1>Wow. Something like this?</h1>
-    <li ng-repeat="photo in photos">
-        <img ng-src="{{ photo.url_c }}" height="200" ng-click="getContent(photo)"/>
-        <p>{{ photo.longitude}}</p>
-        <p>{{photo.latitude}}</p>
-    </li>
+    <ul>
+      <li ng-repeat="photo in photos">
+          <img ng-src="{{ photo.url_c }}" height="200" ng-click="getContent(photo)"/>
+      </li>
+    </ul>
   </div>
 </div>
 <div id="back-button" ng-show="">

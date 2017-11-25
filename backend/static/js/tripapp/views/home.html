@@ -6,7 +6,9 @@
   <div ng-show="photos.length > 0">
     <h1>Wow. Something like this?</h1>
     <li ng-repeat="photo in photos">
-        <img ng-src="{{ photo.url_c }}" height="200"/>
+        <img ng-src="{{ photo.url_c }}" height="200" ng-click="getContent(photo)"/>
+        <p>{{ photo.longitude}}</p>
+        <p>{{photo.latitude}}</p>
     </li>
   </div>
 </div>

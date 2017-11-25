@@ -21,4 +21,18 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
                 alert(error);
             });
     };
+
+    $scope.getContent = function(photo) {
+          var lat = photo.latitude;
+          var long = photo.longitude;
+          var airport;
+          TripService
+              .searchForNearestAirport(long,lat)
+              .then(function(data) {
+                  airport = data[0];
+                  console.log(airport);
+              }, function(error) {
+                alert(error);
+              });
+    };
 }]);

@@ -22,6 +22,26 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
             return deferred.promise;
         },
 
+        getLocation: function (lat, long) {
+          var deferred = $q.defer();
+          console.log(lat);
+          console.log(long);
+          $http
+              .get('/v1/location', {
+                  'params': {
+                      'longitude': long,
+                      'latitude': lat
+                  }
+              })
+              .then(function (response) {
+                  deferred.resolve(response.data);
+              }, function (response) {
+                  deferred.reject(response.data);
+              });
+
+          return deferred.promise;
+      },
+
         searchFlights: function (destinationCode, departureDate) {
             var deferred = $q.defer();
 

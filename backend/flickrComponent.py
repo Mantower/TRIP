@@ -21,7 +21,11 @@ class PyFlickr:
         photos_list = []
         for seperate_tag in tags:
             photos = flickr.photos.search(tags=seperate_tag, per_page='10', format='json', has_geo='1', safe_search="1", sort="relevance", extras="url_c,geo")
+
             json_return = json.loads(photos)
+
+            #json_loc = json.loads(location)
+
             photos_list.append(json_return)
 
         return photos_list
@@ -35,3 +39,10 @@ class PyFlickr:
 
         print(photos_list)
         return photos_list
+
+    def get_location(self, latitude, longitude):
+        print(latitude)
+        print(longitude)
+        location = flickr.places.findByLatLon(lat=latitude, lon=longitude)
+
+        return location

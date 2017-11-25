@@ -41,7 +41,6 @@ def doc():
 def search_photos():
     text = request.args.get('term', '')
     pyNLP = PyNLP('9000')
-    print(text)
     output = pyNLP.eval_input(text)
     print(output)
 
@@ -72,6 +71,16 @@ def search_for_nearest_airport():
             "unit": "cm"
         }
     return jsonify(airports)
+
+@app.route("/v1/location", methods=["GET"])
+@auto.doc()
+def get_location():
+    longitude = float(request.args.get('longitude', ''))
+    latitude = float(request.args.get('latitude', ''))
+    pyFlickr = PyFlickr()
+    location = pyFlickr.get_location(latitude, longitude)
+    return jsonify(location)
+
 
 @app.errorhandler(404)
 def not_found(error):

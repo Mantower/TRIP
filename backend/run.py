@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_autodoc import Autodoc
 from nlpComponent import PyNLP
+from flickrComponent import PyFlickr
 from finnairComponent import FinnAir
+from random_city import RandomCity
 import json
 import math
 
@@ -79,3 +81,15 @@ def search_for_nearest_airport():
 @app.errorhandler(404)
 def not_found(error):
     return "Not found", 404
+
+@app.route("/v1/random", methods=["GET"])
+@auto.doc()
+def get_lucky():
+    tags = RandomCity().get_cities()
+    pyFlickr = PyFlickr()
+    data = pyFlickr.get_random(tags)
+    finalized = []
+    for sub_im in data:
+        finalized.append(sub_im["photos"]["photo"][0])
+    print(finalized)
+    return jsonify(finalized)

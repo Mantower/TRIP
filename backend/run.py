@@ -10,9 +10,6 @@ import math
 app = Flask(__name__)
 auto = Autodoc(app)
 
-FLICKR_KEY = '779602574bed525a7747ab7ebf957fec'
-FLICKR_SECRET = 'b80ac52abe87ed2d'
-
 @app.route("/")
 def index():
     return render_template("index.html")

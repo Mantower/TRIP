@@ -1,9 +1,13 @@
 <div id="content" ng-init="init()">
+  <div ng-hide="hideSearch">
   <h1>What do you dream of seeing or doing on your next trip?</h1>
+  </div>
+  <div ng-hide="hideSearch">
   <input type="text" name="term" ng-model="term" value="Write anything..." />
   <input type="image" ng-click="submit()" src="/images/submit.svg"/>
+  </div>
   <br>
-  <div ng-show="photos.length > 0">
+  <div ng-show="shouldShow">
     <h1>Wow. Something like this?</h1>
     <li ng-repeat="photo in photos">
         <img ng-src="{{ photo.url_c }}" height="200" ng-click="getContent(photo)"/>
@@ -11,6 +15,24 @@
         <p>{{photo.latitude}}</p>
     </li>
   </div>
+  <div ng-show="result">
+    <h1>{{result.location}}</h1>
+  </div>
+  <div ng-show="result">
+    <img ng-src={{result.photo}} height="400"/>
+  </div>
+  <div ng-show="result">
+    <h2>{{result.airport}}</h2>
+  </div>
+  <div ng-show="result">
+    <h2>{{result.distance}}</h2>
+    <hr width="80%" align="center "/>
+  </div>
+  <div ng-show="result">
+    <h2>{{result.offerTex}}</h2>
+    <button>{{result.offers}}</button>
+  </div>
+
 </div>
 <div id="back-button" ng-show="">
   <img id="icon-large" src="/images/back.svg" />

@@ -25,3 +25,13 @@ class PyFlickr:
             photos_list.append(json_return)
 
         return photos_list
+
+    def get_random(self, all_tags):
+        photos_list = []
+        for tag in all_tags:
+            photos = flickr.photos.search(tags=tag, per_page='1', format='json', has_geo='1', extras="url_c,geo")
+            json_return = json.loads(photos)
+            photos_list.append(json_return)
+
+        print(photos_list)
+        return photos_list

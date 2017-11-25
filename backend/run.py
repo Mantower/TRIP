@@ -3,7 +3,9 @@ from flask import request
 from flask import jsonify
 from flask_autodoc import Autodoc
 from nlpComponent import PyNLP
+from flickrComponent import PyFlickr
 from finnairComponent import FinnAir
+from random_city import RandomCity
 import json
 
 app = Flask(__name__)
@@ -43,3 +45,15 @@ def search_flights():
 @app.errorhandler(404)
 def not_found(error):
     return "Not found", 404
+
+@app.route("/v1/random", methods=["GET"])
+@auto.doc()
+def get_lucky():
+    tags = RandomCity().get_cities()
+    pyFlickr = PyFlickr()
+    data = pyFlickr.get_random(tags)
+    finalized = []
+    for sub_im in data:
+        finalized.append(sub_im["photos"]["photo"][0])
+    print(finalized)
+    return jsonify(finalized)

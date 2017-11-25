@@ -11,7 +11,8 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
                 .get('/v1/search', {
                     'params': {
                         'term': term
-                    }
+                    },
+                    timeout: 10000 // 10s
                 })
                 .then(function (response) {
                     deferred.resolve(response.data);
@@ -31,7 +32,8 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
                   'params': {
                       'longitude': long,
                       'latitude': lat
-                  }
+                  },
+                  timeout: 10000 // 10s
               })
               .then(function (response) {
                   deferred.resolve(response.data);
@@ -50,7 +52,8 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
                     'params': {
                         'destination_code': destinationCode,
                         'departure_date': departureDate
-                    }
+                    },
+                    timeout: 10000 // 10s
                 })
                 .then(function (response) {
                     deferred.resolve(response.data);
@@ -69,7 +72,8 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
                     'params': {
                         'longitude': longitude,
                         'latitude': latitude
-                    }
+                    },
+                    timeout: 10000 // 10s
                 })
                 .then(function (response) {
                     deferred.resolve(response.data);
@@ -84,7 +88,9 @@ app.factory('TripService', ['$http', '$q', function ($http, $q) {
             var deferred = $q.defer();
 
             $http
-                .get('/v1/random')
+                .get('/v1/random', {
+                    timeout: 10000 // 10s
+                })
                 .then(function (response) {
                     deferred.resolve(response.data);
                 }, function (response) {

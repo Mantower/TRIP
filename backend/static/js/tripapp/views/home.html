@@ -3,7 +3,7 @@
   <h1>What do you dream of seeing or doing on your next trip?</h1>
   </div>
   <div ng-hide="hideSearch" id="form">
-    <input id="term-box" type="text" name="term" ng-model="term" placeholder="Write anything..." />
+    <input id="term-box" type="text" name="term" ng-model="term" placeholder="Write anything..." ng-keyup="$event.which == 13 ? submit() : null"/>
     <input id="submit-button" type="image" ng-click="submit()" src="/images/submit.svg"/>
   </div>
   <br class="clearer"/>
@@ -34,7 +34,7 @@
   </div>
 
 </div>
-<div id="back-button" ng-show="">
-  <img id="icon-large" src="/images/back.svg" />
+<div id="back-button" ng-show="hideSearch">
+  <img id="icon-large" src="/images/back.svg" ng-click="back()"/>
 </div>
 <div id="push"></div>

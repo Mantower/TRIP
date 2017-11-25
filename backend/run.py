@@ -1,6 +1,4 @@
-from flask import Flask
-from flask import request
-from flask import jsonify
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_autodoc import Autodoc
 from nlpComponent import PyNLP
 from finnairComponent import FinnAir
@@ -14,6 +12,26 @@ FLICKR_KEY = '779602574bed525a7747ab7ebf957fec'
 FLICKR_SECRET = 'b80ac52abe87ed2d'
 
 @app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('static/css', path)
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('static/js', path)
+
+@app.route('/images/<path:path>')
+def send_images(path):
+    return send_from_directory('static/images', path)
+
+@app.route('/fonts/<path:path>')
+def send_fonts(path):
+    return send_from_directory('static/fonts', path)
+
+@app.route("/doc")
 def doc():
     return auto.html(
         title='API Documentation for FinnAir TRIP backend'

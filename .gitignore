@@ -1,2 +1,4 @@
 node_modules/
 npm-debug.log
+backend/__pycache__
+backend/output.txt

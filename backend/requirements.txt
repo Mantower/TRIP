@@ -1,0 +1,4 @@
+pycorenlp
+flickrapi
+Flask
+flask-autodoc

@@ -10,9 +10,6 @@ import math
 app = Flask(__name__)
 auto = Autodoc(app)
 
-FLICKR_KEY = '779602574bed525a7747ab7ebf957fec'
-FLICKR_SECRET = 'b80ac52abe87ed2d'
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -47,8 +44,6 @@ def search_photos():
     print(text)
     output = pyNLP.eval_input(text)
     print(output)
-    #json_return = json.loads(photos)
-    #json_lists = json_return["photos"]["photo"]
 
     return jsonify(output[0]["photos"]["photo"])
 
@@ -89,6 +84,7 @@ def get_lucky():
     pyFlickr = PyFlickr()
     data = pyFlickr.get_random(tags)
     finalized = []
+    print(data)
     for sub_im in data:
         finalized.append(sub_im["photos"]["photo"][0])
     print(finalized)

@@ -14,10 +14,13 @@ module.exports = {
             loader: 'babel-loader',
             query: {
               presets: ['es2015', 'react']
-            },
-            test: /\.(css)$/,
-            loader: "style-loader!css-loader"
-        }]
+            }
+          },
+            {
+              test: /\.(css)$/,
+              loader: "style-loader!css-loader"
+            }
+        ]
     },
     output: {
         path: parentDir + '/dist',

@@ -66,23 +66,23 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
                           $scope.result.offers = "Get price";
                       }
                   })
+                  .then(function() {
+                    TripService.getLocation(lat, long)
+                    .then(function(data) {
+                      console.log(data);
+                      $scope.result.location = data.places.place[0].name;
+                      $scope.shouldShow = false;
+                      $scope.hideSearch = true;
+                      var map_url = 'https://maps.googleapis.com/maps/api/staticmap?center='
+                      map_url += $scope.result.location
+                      map_url += '&zoom=5&size=400x300&maptype=terrain&markers=color:red%7Clabel:A%7C'
+                      map_url += lat + ',' + long
+                      map_url += '&key=AIzaSyBHXFdYNMr7lMiAnjU20YTx2g9ED072zZ4'
+                      $scope.result.googlemap = map_url
+                    })
+                  })
               }, function(error) {
                 alert(error);
-              })
-              .then(function() {
-                TripService.getLocation(lat, long)
-                .then(function(data) {
-                  console.log(data);
-                  $scope.result.location = data.places.place[0].name;
-                  $scope.shouldShow = false;
-                  $scope.hideSearch = true;
-                  var map_url = 'https://maps.googleapis.com/maps/api/staticmap?center='
-                  map_url += $scope.result.location
-                  map_url += '&zoom=5&size=400x300&maptype=terrain&markers=color:red%7Clabel:A%7C'
-                  map_url += lat + ',' + long
-                  map_url += '&key=AIzaSyBHXFdYNMr7lMiAnjU20YTx2g9ED072zZ4'
-                  $scope.result.googlemap = map_url
-                })
               });
 
 

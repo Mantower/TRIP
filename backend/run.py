@@ -40,6 +40,15 @@ def search_flights():
     flights = finnAir.search_flights(destination_code, departure_date)
     return jsonify(flights)
 
+@app.route("/v1/destination", methods=["GET"])
+@auto.doc()
+def search_for_nearest_airport():
+    longitude = float(request.args.get('longitude', ''))
+    latitude = float(request.args.get('latitude', ''))
+    finnAir = FinnAir()
+    airports = finnAir.search_for_nearest_airport(latitude, longitude)
+    return jsonify(airports)
+
 @app.errorhandler(404)
 def not_found(error):
     return "Not found", 404

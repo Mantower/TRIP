@@ -2,3 +2,4 @@ pycorenlp
 flickrapi
 Flask
 flask-autodoc
+Rtree

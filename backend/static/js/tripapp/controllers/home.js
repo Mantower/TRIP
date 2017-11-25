@@ -15,7 +15,22 @@ app.controller('HomeCtrl', ['$scope', '$location', 'TripService', function ($sco
     $scope.init = function () {
     };
 
+    $scope.back = function () {
+        $scope.shouldShow = true;
+        $scope.hideSearch = false;
+    }
+
     $scope.submit = function() {
+        if ($scope.term == '') {
+            // reset
+            $scope.term = '';
+            $scope.photos = [];
+            $scope.result = {};
+            $scope.shouldShow = false;
+            $scope.hideSearch = false;
+            return;
+        }
+
         TripService
             .searchPhotos($scope.term)
             .then(function (data) {
